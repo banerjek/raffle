@@ -1,0 +1,57 @@
+<html>
+<head>
+<title>Raffle drawing</title>
+</head>
+<body>
+<script language='javascript'>
+ var milisec=0;
+ var seconds=0;
+ var minutes=0;
+ var winner = '';
+ var contestants=[];
+
+function processForm(obj_f) {
+	seconds = 10;
+	contestants = obj_f.userinput.value.split("\n");
+	findWinner();
+}
+function winnerIs() {
+				document.getElementById('results').innerHTML='<center><h1>And the winner is..... <p />' + contestants[Math.floor(Math.random()*contestants.length)] + '</h1></center>';
+}
+
+function findWinner(){
+ if (milisec<=0){
+    milisec=9
+    seconds-=1
+ 	}
+ if (seconds<=-1){
+    milisec=0
+ 	}
+
+    if(seconds <= 0){
+			clearTimeout();
+		} else {
+			winnerIs();
+      setTimeout("findWinner()",100) 
+    	milisec-=1
+      }
+}
+ 
+</script>
+</head>
+<body>
+<p />
+	<center><h1>
+<div id='results'>
+				Paste a list of names in the box and find the winner!
+ 
+</div></center>
+</h1>
+	<center><form name="f" onSubmit="processForm(document.f); return false;">
+									<input type="submit" value="Find the Winner!"><p />
+
+	<textarea name="userinput" rows="50" cols="50"></textarea>
+	</form></center>
+</body>
+</html>
+
