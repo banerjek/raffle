@@ -53,13 +53,20 @@ th.left {
 th.right {
 	border-radius: 0px 25px 0px 0px;
 }
-winner { font-size: 36pt; }
+winner { font-size: 46pt; }
+
+#final {
+	background: url('winner.png') no-repeat center;
+	height: 266px;
+	background-size: 500px 266px;
+	font-size: 46pt;
+}
 #results {
 	font-size: 30pt;
 	font-weight: bold;
 	text-align: center;
 	vertical-align: center;
-
+}
 
 
 

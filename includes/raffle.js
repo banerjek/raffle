@@ -24,6 +24,7 @@ function findWinner(){
 
     if(seconds <= 0){
 			clearTimeout();
+			document.getElementById('results').innerHTML='&nbsp;&nbsp;&nbsp;&nbsp;And the winner is.....&nbsp;&nbsp;&nbsp;&nbsp;<div id="final"><p />&nbsp;<br /><winner>' + contestants[Math.floor(Math.random()*contestants.length)] + '!</winner></div>';
 		} else {
 			winnerIs();
       setTimeout("findWinner()",100) 
