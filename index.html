@@ -1,56 +1,35 @@
-<html>
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>Raffle drawing</title>
-</head>
-<body>
-<script language='javascript'>
- var milisec=0;
- var seconds=0;
- var minutes=0;
- var winner = '';
- var contestants=[];
-
-function processForm(obj_f) {
-	seconds = 10;
-	contestants = obj_f.userinput.value.split("\n");
-	findWinner();
-}
-function winnerIs() {
-				document.getElementById('results').innerHTML='<center><h1>And the winner is..... <p />' + contestants[Math.floor(Math.random()*contestants.length)] + '</h1></center>';
-}
-
-function findWinner(){
- if (milisec<=0){
-    milisec=9
-    seconds-=1
- 	}
- if (seconds<=-1){
-    milisec=0
- 	}
-
-    if(seconds <= 0){
-			clearTimeout();
-		} else {
-			winnerIs();
-      setTimeout("findWinner()",100) 
-    	milisec-=1
-      }
-}
- 
-</script>
+<meta name="Author" content="Kyle Banerjee" />
+<meta name="keywords" content="raffle drawing prizes" />
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<link title="new" rel="stylesheet" href="includes/default.css" TYPE="text/css" />
+<script language='javascript' src="includes/raffle.js"></script>
 </head>
 <body>
 <p />
-	<center><h1>
+<center>
+<table><tr><td>
 <div id='results'>
 				Paste a list of names in the box and find the winner!
  
-</div></center>
+</div>
+</td></tr></table>
+<div id="show">
+<a href="index.html" onClick="hideNames(); return false;">Hide names in box</a>
+</div>
+<p />&nbsp;<p />
+</center>
 </h1>
 	<center><form name="f" onSubmit="processForm(document.f); return false;">
 									<input type="submit" value="Find the Winner!"><p />
-
+<div id="names">
 	<textarea name="userinput" rows="50" cols="50"></textarea>
+	</div>
 	</form></center>
 </body>
 </html>
