@@ -42,11 +42,11 @@ function findWinner(){
  
 function hideNames() {
 				document.getElementById('names').style.visibility='hidden';
-				document.getElementById('show').innerHTML='<a href="index.html" onClick="showNames(); return false;">Show names in box</a>';
+				document.getElementById('show').innerHTML='<a class="blue" onClick="showNames(); return false;">Show names in box</a>';
 }
 
 function showNames() {
 				document.getElementById('names').style.visibility='visible';
-				document.getElementById('show').innerHTML='<a href="index.html" onClick="hideNames(); return false;">Hide names in box</a>';
+				document.getElementById('show').innerHTML='<a class="blue" onClick="hideNames(); return false;">Hide names in box</a>';
 }
 
