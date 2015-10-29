@@ -14,6 +14,7 @@ function winnerIs() {
 }
 
 function findWinner(){
+ var x=0;
  if (milisec<=0){
     milisec=9
     seconds-=1
@@ -24,7 +25,14 @@ function findWinner(){
 
     if(seconds <= 0){
 			clearTimeout();
-			document.getElementById('results').innerHTML='&nbsp;&nbsp;&nbsp;&nbsp;And the winner is.....&nbsp;&nbsp;&nbsp;&nbsp;<div id="final"><p />&nbsp;<br /><winner>' + contestants[Math.floor(Math.random()*contestants.length)] + '!</winner></div>';
+			// keep trying if a black line is retrieved. Give up after 100 tries;
+			winner = contestants[Math.floor(Math.random()*contestants.length)];
+			while (winner.length < 2) {
+				winner = contestants[Math.floor(Math.random()*contestants.length)];
+				x++;
+				if (x > 100) {break;}
+			}
+				document.getElementById('results').innerHTML='&nbsp;&nbsp;&nbsp;&nbsp;And the winner is.....&nbsp;&nbsp;&nbsp;&nbsp;<div id="final"><p />&nbsp;<br /><winner>' + winner + '!</winner></div>';
 		} else {
 			winnerIs();
       setTimeout("findWinner()",100) 
